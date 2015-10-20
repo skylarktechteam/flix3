@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Flix</title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header>
+      <div class="wrapper clearfix">
+        <h1 class="logo">
+          <%= link_to '/' do %>
+            <%= image_tag 'logo-2x.png', width: 133 %>
+          <% end %>
+        </h1>
+        <%= form_tag '/', method: :get, class: 'search' do %>
+          <%= text_field_tag 'keys', nil, type: 'search', placeholder: 'Search' %>
+        <% end %>
+      </div>
+    </header>
+    <div class="band">
+      <div class="wrapper clearfix">
+        <nav class="main">
+          <ul>
+            <li class="active">
+              <a href="/"><span>Movies</span></a>
+            </li>
+            <li>
+              <a href="#"><span>Theaters</span></a>
+            </li>
+            <li>
+              <a href="#"><span>Blog</span></a>
+            </li>
+            <li class="last">
+              <a href="#"><span>My Account</span></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div id="main">
+      <div class="wrapper">
+        <div class="inset-block">
+
+        <% if flash[:alert] %>
+          <div id="flash" class="alert"><%= flash[:alert] %></div>
+        <% elsif flash[:notice] %>
+          <div id="flash" class="notice"><%= flash[:notice] %></div>
+        <% end %>
+
+          <%= yield %>
+
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="band band-reverse">
+        <div class="wrapper clearfix">
+          <div class="clearfix">
+            <div class="imgLeft">
+              <h2 class="logo logo-small">
+              <%= link_to '/' do %>
+                <%= image_tag 'logo-small-2x.png', width: 81 %>
+              <% end %>
+              </h2>
+            </div>
+            <div class="clearfix">
+              <div class="footer-links">
+                <div>
+                  <a href="/about">About FLIX</a>
+                  <span class="sep">|</span>
+                  <a href="#">Feedback</a>
+                </div>
+                <div>
+                  <a href="/privacy">Privacy</a>
+                  <span class="sep">|</span>
+                  <a href="#">Terms</a>
+                  <span class="sep">|</span>
+                  <a href="#">Help</a>
+                  <span class="sep">|</span>
+                  <a href="#">1-800-FLIX</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <div class="wrapper clearfix">
+          © FLIX MOVIES All Rights Reserved
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

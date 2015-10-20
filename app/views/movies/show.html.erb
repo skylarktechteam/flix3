@@ -1,0 +1,34 @@
+<div id="movie-info" class="clearfix">
+<%= image_tag "posters/large/#{@movie.poster_image}", class: "imgLeft poster-image" %>
+
+	<div class="overview">
+
+		<h2><%= @movie.title %></h2>
+		<p class="mpaa-rating">Rating: <%= @movie.mpaa_rating %></p>
+		<p class="runtime">Runtime: <%= @movie.runtime %> minutes</p>
+		<%= simple_format @movie.description %>
+		<a href="#" class="button">Play Trailer</a>
+	</div>
+	
+	<div class="details">
+		<h4>Movie Details</h4>
+		<div>
+			<span>Subtitles:</span>
+			<% if @movie.has_subtitles? %>
+				Yes
+			<% else %>
+				No
+			<% end %>
+		</div>
+		<div>
+			<span>Ticket Price:</span>
+			<%= number_to_currency @movie.ticket_price %>
+		</div>
+		<div>
+			<span>Release Date:</span>
+			<%= @movie.release_date.strftime('%-m/%-d/%Y') %>
+		</div> 
+	</div>
+
+	
+</div>

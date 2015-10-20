@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  description: MyText
+  placement: MyString
+  mpaa_rating: MyString
+  runtime: 1
+  poster: MyString
+  has_subtitles: false
+  ticket_price: 9.99
+  release_date: 2013-10-22
+
+two:
+  title: MyString
+  description: MyText
+  placement: MyString
+  mpaa_rating: MyString
+  runtime: 1
+  poster: MyString
+  has_subtitles: false
+  ticket_price: 9.99
+  release_date: 2013-10-22
