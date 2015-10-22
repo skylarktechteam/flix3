@@ -25,7 +25,7 @@ class MoviesController < ApplicationController
 
 	def create
 
-		movie_params = params.require(:movie).permit(:title, :description, :has_subtitles, :placement, :mpaa_rating, :release_date,  :ticket_price , :runtime, :poster_image )
+		movie_params = params.require(:movie).permit(:title, :description, :has_subtitles, :placement, :mpaa_rating, :release_date,  :ticket_price , :runtime, :poster_image, :director, :producer, :studio )
 
 		@movie = Movie.new(movie_params)
 
@@ -45,10 +45,11 @@ class MoviesController < ApplicationController
 		@movie = Movie.find(params[:id])
 		movie_params = params.require(:movie).permit(:title, :description, :has_subtitles, :placement, :mpaa_rating, :release_date,  :ticket_price , :runtime, :poster_image )
 		if @movie.update(movie_params)
-		redirect_to @movie, notice: 'Movie up'
+		redirect_to @movie, notice: 'Movie was successfully updated'
 		else
 		render action: 'edit'
-		 
+	end
+
 	end
 
 

@@ -13,6 +13,21 @@
 	<div class="details">
 		<h4>Movie Details</h4>
 		<div>
+		<span>Director: </span>
+		<%= @movie.director %>
+		</div>
+		
+		<div>
+		<span> producer</span>
+		<%= @movie.producer %>
+		</div>
+		
+		<div>
+		<span> studio</span>
+		<%= @movie.studio %>
+		</div>
+
+		<div>
 			<span>Subtitles:</span>
 			<% if @movie.has_subtitles? %>
 				Yes
