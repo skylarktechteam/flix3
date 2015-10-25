@@ -1,4 +1,9 @@
+<% if @movie.errors.count > 0 %>
+<div id="flash" class ="alert">
 
+<%= @movie.errors.full_messages.collect { |msg| msg }.join("<br>").html_safe %>
+
+<% end %>
 <%= form_for @movie do |f| %>
 
 	
@@ -36,7 +41,11 @@
 		<%= f.text_field :studio %>
 	</p>
 
-
+<p>
+		
+		<%= f.label :runtime%>
+		<%= f.text_field :runtime %>
+	</p>
 	<p>
 		
 		<%= f.label :placement %>
@@ -48,7 +57,7 @@
 		<%= f.label :placement_in_theaters, "Go Now" %>
 	</p>
 <p>
-		<% mpaa_ratings = options_for_select([ ["G","G"],  ["PG","PG",], ["R" "R"], ["Not Rated" "NR"]], selected: @movie.mpaa_rating) %>
+		<% mpaa_ratings = options_for_select(Movie.all_mpaa_ratings, selected: @movie.mpaa_rating) %>
 		<%= f.label :mpaa_rating, "MPAA Rating"
 		 %>
 		<%= f.select :mpaa_rating, mpaa_ratings, include_blank: true %>

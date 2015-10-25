@@ -5,7 +5,7 @@
 
 		<h2><%= @movie.title %></h2>
 		<p class="mpaa-rating">Rating: <%= @movie.mpaa_rating %></p>
-		<p class="runtime">Runtime: <%= @movie.runtime %> minutes</p>
+		<p class="runtime">Runtime: <%= @movie.runtime_hours %>  </p>
 		<%= simple_format @movie.description %>
 		<a href="#" class="button">Play Trailer</a>
 	</div>
@@ -13,18 +13,17 @@
 	<div class="details">
 		<h4>Movie Details</h4>
 		<div>
-		<span>Director: </span>
-		<%= @movie.director %>
+			<span>Director: </span>
+			<%= @movie.director %>
+		</div>
+		<div>
+			<span> producer</span>
+			<%= @movie.producer %>
 		</div>
 		
 		<div>
-		<span> producer</span>
-		<%= @movie.producer %>
-		</div>
-		
-		<div>
-		<span> studio</span>
-		<%= @movie.studio %>
+			<span> studio</span>
+			<%= @movie.studio %>
 		</div>
 
 		<div>
